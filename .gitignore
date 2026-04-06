@@ -1,0 +1,9 @@
+# Large video files — too big for GitHub
+*.mp4
+*.mov
+*.avi
+*.webm
+
+# macOS junk
+.DS_Store
+**/.DS_Store
