@@ -203,7 +203,7 @@ ul {
 }
 
 .nav__link--contact {
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.25rem 0.4rem;
   border: 1.5px solid var(--purple-800);
   border-radius: 100px;
   color: var(--purple-800);
@@ -309,11 +309,12 @@ ul {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 0.875rem 2rem;
+  padding: 1rem 2rem 0.75rem;
   border-radius: 100px;
   transition: all var(--transition-base);
   cursor: pointer;
   border: none;
+  line-height: 1;
 }
 
 .btn--primary {
@@ -575,7 +576,7 @@ ul {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.25rem 0.625rem;
+  padding: 0.3rem 0.625rem 0.2rem;
   border-radius: 100px;
   background: rgba(255,255,255,0.15);
   color: rgba(255,255,255,0.85);
