@@ -208,6 +208,9 @@ ul {
   border-radius: 100px;
   color: var(--purple-800);
   transition: background var(--transition-fast), color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .nav__link--contact::after {
@@ -577,6 +580,9 @@ ul {
   background: rgba(255,255,255,0.15);
   color: rgba(255,255,255,0.85);
   border: 1px solid rgba(255,255,255,0.2);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .project-card__arrow {
