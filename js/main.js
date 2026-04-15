@@ -9,10 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ----------------------------------------------------------
   const nav = document.getElementById('nav');
   if (nav) {
+    const hero = document.querySelector('.hero');
     const onScroll = () => {
-      if (window.scrollY > 24) {
+      const heroBottom = hero ? hero.offsetHeight : window.innerHeight;
+      if (window.scrollY > heroBottom * 0.8) {
+        nav.classList.add('visible');
         nav.classList.add('scrolled');
       } else {
+        nav.classList.remove('visible');
         nav.classList.remove('scrolled');
       }
     };
@@ -124,7 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 6. Reduced motion: disable animations for users who prefer it
+  // 6. Email obfuscation — assembled at runtime, never in HTML
+  // ----------------------------------------------------------
+  const _u = 'ginamarieivy';
+  const _d = 'gmail' + '\x2E' + 'com';
+  const _e = _u + '\x40' + _d;
+
+  // Nav "Contact" links + footer anchor hrefs
+  document.querySelectorAll('.js-email-link').forEach(el => {
+    el.href = 'mailto:' + _e;
+  });
+
+  // Footer email text spans (inside SVG-containing links)
+  document.querySelectorAll('.js-email-text').forEach(el => {
+    el.textContent = _e;
+  });
+
+  // ----------------------------------------------------------
+  // 7. Reduced motion: disable animations for users who prefer it
   // ----------------------------------------------------------
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
