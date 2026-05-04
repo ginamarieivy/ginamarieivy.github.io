@@ -849,6 +849,17 @@ ul {
   transform: scale(1.02);
 }
 
+.cs-caption {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 180, 60, 0.45);
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: var(--space-md);
+}
+
 .cs-gallery__item-placeholder {
   width: 100%;
   min-height: 300px;

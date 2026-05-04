@@ -8,43 +8,59 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <style>
-    .cs-hero__bg-placeholder--category {
-      background: linear-gradient(135deg, #0c2340 0%, #1a3f6f 40%, #2563EB 80%, #3B82F6 100%);
+    .sub-campaigns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: var(--space-xl);
+      padding: 0 var(--space-md);
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
     }
-    .gallery-placeholder {
-      background: #0e2a52;
+    .sub-campaign-card {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.25);
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 1rem;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 12px;
+      text-decoration: none;
+      min-height: 140px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .cs-sub-section {
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-xl);
-      border-bottom: 1px solid var(--gray-300);
+    .sub-campaign-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     }
-    .cs-sub-section:last-child {
-      border-bottom: none;
+    .sub-campaign-card__left {
+      display: flex;
+      flex-direction: column;
     }
-    .cs-sub-label {
+    .sub-campaign-card__eyebrow {
       font-size: 0.6875rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gray-500);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 0.5rem;
     }
-    .cs-sub-title {
+    .sub-campaign-card__title {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2.5vw, 2.25rem);
       font-weight: 400;
-      color: var(--black);
-      margin-bottom: 1rem;
+      color: #fff;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .sub-campaign-card__cta {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+    .sub-campaign-card:hover .sub-campaign-card__cta {
+      color: #fff;
     }
   </style>
 </head>
@@ -128,7 +144,7 @@
     <!-- Campaign lockups -->
     <div class="cs-gallery__grid fade-up">
       <div class="cs-gallery__item">
-        <img src="../images/category-campaigns.png" alt="Category Campaign lockups">
+        <img src="../images/category/Category-Lockups-Stacked.png" alt="Category Campaign lockups">
       </div>
     </div>
 
@@ -148,66 +164,69 @@
       </div>
     </div>
 
-    <!-- Sub-section: Careers in Care -->
-    <div class="cs-sub-section fade-up">
-      <p class="cs-sub-label">Sub-campaign</p>
-      <h2 class="cs-sub-title">Careers in Care — Healthcare's Own Visual Identity</h2>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.25rem; max-width: 680px;">
-        Careers in Care (CiC) is the flagship healthcare campaign within the Category system, targeting
-        nurses and other healthcare workers — one of the most supply-constrained categories on Indeed.
-        I designed the CiC brand identity, the event environment, and the earned media assets for both
-        the 2023 and 2024 editions.
-      </p>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.25rem; max-width: 680px;">
-        In 2023, I art directed the nurse Travis photoshoot — building the set design and directing the
-        session to produce the owned photography that anchored the campaign. In 2024, I extended the
-        system with a new "Game On" set design concept and badge identity for CiC's evolution.
-      </p>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); max-width: 680px;">
-        The 2024 edition expanded into a full magazine feature in <em>ADA Magazine</em> and
-        lifecycle marketing programs that took healthcare workers through targeted email-to-apply journeys.
-      </p>
-    </div>
-
-    <!-- CiC layout -->
-    <div class="cs-gallery__grid fade-up">
-      <div class="cs-gallery__item">
-        <img src="../images/category/Category Layout V2.jpg" alt="Careers in Care layout">
+    <!-- The Campaigns -->
+    <div class="cs-section fade-up">
+      <p class="cs-section__label">The Campaigns</p>
+      <div class="cs-section__content">
+        <h3>Four industries. Four distinct identities.</h3>
+        <p>
+          Each sub-campaign gets its own visual identity, owned photography, and full channel
+          rollout — while staying unmistakably "Indeed." Click into any campaign to see the work.
+        </p>
+        <p>
+          A fourth campaign — Better Work in Retail — was fully designed as part of this system
+          but never launched due to shifting business priorities and budget restrictions. The design work exists;
+          the world just didn't get to see it.
+        </p>
       </div>
     </div>
 
-    <!-- Sub-section: Photoshoots Art Direction -->
-    <div class="cs-sub-section fade-up">
-      <p class="cs-sub-label">Sub-campaign</p>
-      <h2 class="cs-sub-title">Photoshoots Art Direction — Owned Photography for Every Category</h2>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.25rem; max-width: 680px;">
-        Under Indeed's "The World Can Work Better" brand campaign, I built a library of owned
-        photography for three priority categories — Healthcare, Transportation, and Finance &amp;
-        Accounting — so each industry could have authentic, on-brand imagery that felt genuinely
-        representative rather than stock-photo generic.
-      </p>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); max-width: 680px;">
-        For each shoot, I developed the creative brief, designed the set concepts, led pre-production
-        planning, and directed on-set — working with photographers and talent to capture imagery that
-        could flex across social, email, display, and print formats.
-      </p>
+    <!-- Campaign cards -->
+    <div class="sub-campaigns fade-up">
+
+      <a href="careers-in-care.html" class="sub-campaign-card" style="background: var(--purple);">
+        <div class="sub-campaign-card__left">
+          <p class="sub-campaign-card__eyebrow">Healthcare · 2023–2025</p>
+          <h3 class="sub-campaign-card__title">Careers in Care</h3>
+        </div>
+        <span class="sub-campaign-card__cta">View Campaign →</span>
+      </a>
+
+      <a href="transportation.html" class="sub-campaign-card" style="background: var(--amber);">
+        <div class="sub-campaign-card__left">
+          <p class="sub-campaign-card__eyebrow">Transportation · 2024–2025</p>
+          <h3 class="sub-campaign-card__title">Better Work in<br>Transportation</h3>
+        </div>
+        <span class="sub-campaign-card__cta">View Campaign →</span>
+      </a>
+
+      <a href="finance.html" class="sub-campaign-card" style="background: var(--teal);">
+        <div class="sub-campaign-card__left">
+          <p class="sub-campaign-card__eyebrow">Finance &amp; Accounting · 2025–2026</p>
+          <h3 class="sub-campaign-card__title">Careers in Finance</h3>
+        </div>
+        <span class="sub-campaign-card__cta">View Campaign →</span>
+      </a>
+
     </div>
 
-    <!-- Sub-section: Off the Clock -->
-    <div class="cs-sub-section fade-up">
-      <p class="cs-sub-label">Sub-campaign</p>
-      <h2 class="cs-sub-title">Off the Clock — CiC Event Branding, 2025</h2>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.25rem; max-width: 680px;">
-        "Off the Clock" is the 2025 Careers in Care event — a brand experience designed for
-        healthcare workers to connect, celebrate, and learn. I created the full event identity:
-        branded lanyards, step-and-repeat backdrop, tall format event banners, partnership
-        co-branding, and branded merchandise including water bottles.
-      </p>
-      <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--gray-700); max-width: 680px;">
-        The Off the Clock identity extended the Careers in Care visual system while carving out
-        its own warm, celebratory personality — one that felt distinctly like a night out, not a
-        conference.
-      </p>
+    <!-- Photoshoot Art Direction -->
+    <div class="cs-section fade-up">
+      <p class="cs-section__label">Art Direction</p>
+      <div class="cs-section__content">
+        <h3>Building an owned photo library from scratch</h3>
+        <p>
+          Under Indeed's "The World Can Work Better" brand campaign, I built a library of owned
+          photography for three priority categories — Healthcare, Transportation, and Finance &amp;
+          Accounting — so each industry could have authentic, on-brand imagery that felt genuinely
+          representative rather than stock-photo generic.
+        </p>
+        <p>
+          For each shoot, I developed the creative brief, designed the set concepts, led pre-production
+          planning, and directed on-set — working with photographers and talent to capture imagery that
+          could flex across social, email, display, and print formats.
+        </p>
+      </div>
     </div>
 
     <!-- Design System -->
@@ -226,6 +245,7 @@
           — like Healthcare's "Careers in Care" — that move high-value workers through tailored
           journeys from email click to job application.
         </p>
+        <img src="../images/category/Category-Layout-Long.jpg" alt="Category Campaigns design system layout" style="width:65%; height:auto; display:block; border-radius:8px; margin-top: var(--space-md);">
       </div>
     </div>
 
