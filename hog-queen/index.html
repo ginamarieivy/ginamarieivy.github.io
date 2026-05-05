@@ -142,7 +142,10 @@
 
   <!-- HERO -->
   <header class="cs-hero" style="min-height: 80vh;">
-    <img src="../images/heroes/hog-queen-hero.png" alt="The Hog Queen" class="cs-hero__bg" style="object-fit:cover;object-position:center;">
+    <picture>
+      <source media="(max-width: 768px)" srcset="../images/heroes/hog-queen-hero-mobile.png">
+      <img src="../images/heroes/hog-queen-hero.png" alt="The Hog Queen" class="cs-hero__bg" style="object-fit:cover;object-position:center;">
+    </picture>
     <div class="cs-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0.6) 100%);"></div>
     <div class="cs-hero__content" style="max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 0 var(--space-md);">
       <a href="../index.html#work" class="cs-hero__back">

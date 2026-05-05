@@ -1200,6 +1200,14 @@ ul {
     height: 160px;
   }
 
+  .cs-hero {
+    min-height: 50vh;
+  }
+
+  .cs-hero__bg {
+    object-position: center top;
+  }
+
   .cs-hero__title {
     font-size: 3rem;
   }

@@ -45,7 +45,10 @@
 
   <!-- HERO -->
   <header class="cs-hero">
-    <div class="cs-hero__bg cs-hero__bg-placeholder--finance" aria-hidden="true"></div>
+    <picture>
+      <source media="(max-width: 768px)" srcset="../images/heroes/finance-hero-mobile.png">
+      <img src="../images/heroes/finance-hero.png" alt="Careers in Finance" class="cs-hero__bg" style="object-fit:cover;object-position:center;">
+    </picture>
     <div class="cs-hero__overlay" aria-hidden="true"></div>
     <div class="cs-hero__content" style="max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 0 var(--space-md);">
       <a href="index.html" class="cs-hero__back">

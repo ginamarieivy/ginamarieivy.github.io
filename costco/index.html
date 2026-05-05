@@ -84,7 +84,10 @@
 
   <!-- HERO -->
   <header class="cs-hero">
-    <img src="../images/heroes/costco-hero.png" alt="The Costco Ben Party" class="cs-hero__bg" style="object-fit:cover;object-position:center;">
+    <picture>
+      <source media="(max-width: 768px)" srcset="../images/heroes/costco-hero-mobile.png">
+      <img src="../images/heroes/costco-hero.png" alt="The Costco Ben Party" class="cs-hero__bg" style="object-fit:cover;object-position:center;">
+    </picture>
     <div class="cs-hero__overlay" aria-hidden="true"></div>
     <div class="cs-hero__content" style="max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 0 var(--space-md);">
       <a href="../index.html#work" class="cs-hero__back">
