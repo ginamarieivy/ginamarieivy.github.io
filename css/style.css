@@ -1242,6 +1242,31 @@ ul {
     font-size: clamp(3rem, 17vw, 10rem);
   }
 
+  .sub-campaign-card {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 160px;
+    padding: 1.25rem;
+  }
+
+  .sub-campaign-card__eyebrow {
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .sub-campaign-card__title {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .sub-campaign-card__cta {
+    align-self: flex-start;
+    margin-top: 0.75rem;
+  }
+
   .footer {
     padding: 3rem 1.5rem;
   }
