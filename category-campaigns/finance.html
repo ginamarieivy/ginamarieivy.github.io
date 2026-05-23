@@ -24,6 +24,74 @@
       padding: 1rem;
       aspect-ratio: 16/9;
     }
+    .filmstrip-wrapper {
+      position: relative;
+      margin-bottom: var(--space-xl);
+    }
+    .filmstrip {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    .filmstrip::-webkit-scrollbar { display: none; }
+    .filmstrip__track {
+      display: flex;
+      gap: 1rem;
+      padding: 0 var(--space-md);
+      width: max-content;
+    }
+    .filmstrip__item {
+      height: 520px;
+      width: auto;
+      flex-shrink: 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .filmstrip__item img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .filmstrip__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10;
+    }
+    .filmstrip__arrow:hover {
+      background: rgba(255,255,255,0.28);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .filmstrip__arrow--left {
+      left: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+    .filmstrip__arrow--left.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .filmstrip__arrow--right { right: 1.25rem; }
+    @media (max-width: 768px) {
+      .filmstrip__item { height: 320px; }
+      .filmstrip__arrow { width: 40px; height: 40px; }
+    }
   </style>
 </head>
 <body>
@@ -134,14 +202,42 @@
       </div>
     </div>
 
-    <!-- Shoot images -->
-    <div class="cs-gallery__grid cs-gallery__grid--2col fade-up">
-      <div class="cs-gallery__item">
-        <img src="../images/category/finance-photoshoot-01.jpg" alt="Careers in Finance photoshoot">
+    <!-- Shoot filmstrip -->
+    <div class="filmstrip-wrapper fade-up">
+      <div class="filmstrip" id="filmstrip">
+        <div class="filmstrip__track">
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-01.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-02.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-03.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-04.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-05.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-06.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-07.jpg" alt="Careers in Finance photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/finance-photoshoot-08.jpg" alt="Careers in Finance photoshoot">
+          </div>
+        </div>
       </div>
-      <div class="cs-gallery__item">
-        <img src="../images/category/finance-photoshoot-02.jpg" alt="Careers in Finance photoshoot">
-      </div>
+      <button class="filmstrip__arrow filmstrip__arrow--left" id="filmstrip-prev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="13 4 7 10 13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="filmstrip__arrow filmstrip__arrow--right" id="filmstrip-next" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="7 4 13 10 7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
 
     <div class="cs-gallery__grid cs-gallery__grid--3col fade-up">
@@ -185,5 +281,14 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script src="../js/main.js"></script>
+  <script>
+    const filmstrip = document.getElementById('filmstrip');
+    const prevBtn = document.getElementById('filmstrip-prev');
+    const nextBtn = document.getElementById('filmstrip-next');
+    const scrollAmount = 600;
+    nextBtn.addEventListener('click', () => { filmstrip.scrollBy({ left: scrollAmount, behavior: 'smooth' }); });
+    prevBtn.addEventListener('click', () => { filmstrip.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); });
+    filmstrip.addEventListener('scroll', () => { prevBtn.classList.toggle('visible', filmstrip.scrollLeft > 20); });
+  </script>
 </body>
 </html>

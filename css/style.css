@@ -239,6 +239,18 @@ ul {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.btn--ghost {
+  background: transparent;
+  color: var(--fg);
+  border: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.btn--ghost:hover {
+  color: var(--amber);
+}
+
 /* ============================================================
    HERO
    ============================================================ */

@@ -24,6 +24,74 @@
       padding: 1rem;
       aspect-ratio: 16/9;
     }
+    .filmstrip-wrapper {
+      position: relative;
+      margin-bottom: var(--space-xl);
+    }
+    .filmstrip {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    .filmstrip::-webkit-scrollbar { display: none; }
+    .filmstrip__track {
+      display: flex;
+      gap: 1rem;
+      padding: 0 var(--space-md);
+      width: max-content;
+    }
+    .filmstrip__item {
+      height: 520px;
+      width: auto;
+      flex-shrink: 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .filmstrip__item img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .filmstrip__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10;
+    }
+    .filmstrip__arrow:hover {
+      background: rgba(255,255,255,0.28);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .filmstrip__arrow--left {
+      left: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+    .filmstrip__arrow--left.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .filmstrip__arrow--right { right: 1.25rem; }
+    @media (max-width: 768px) {
+      .filmstrip__item { height: 320px; }
+      .filmstrip__arrow { width: 40px; height: 40px; }
+    }
   </style>
 </head>
 <body>
@@ -98,13 +166,13 @@
       <div class="cs-section__content">
         <h3>Healthcare's own visual identity — built from the ground up</h3>
         <p>
-          Careers in Care (CiC) is the flagship healthcare campaign within Indeed's Category system,
+          Careers in Care is the flagship healthcare campaign within Indeed's Category system,
           targeting nurses and other healthcare workers — one of the most supply-constrained job
           categories on the platform. The goal: make healthcare workers feel genuinely seen by a brand
           that's usually associated with desk jobs.
         </p>
         <p>
-          I designed the CiC brand identity, the event environment, and the earned media assets for
+          I designed the Careers in Care brand identity, the event environment, and the earned media assets for
           both the 2023 and 2024 editions — and extended it into the "Off the Clock" event experience
           in 2025.
         </p>
@@ -122,11 +190,11 @@
     <div class="cs-section fade-up">
       <p class="cs-section__label">2023 — Art Direction</p>
       <div class="cs-section__content">
-        <h3>An original photoshoot built around a real nurse</h3>
+        <h3>An original photoshoot built around real healthcare workers</h3>
         <p>
-          In 2023, I art directed the Careers in Care photoshoot — building the set design concept and
+          In 2023, I helped to art direct the Careers in Care photoshoot — building the set design concept and
           directing the full session to produce owned photography that could anchor the campaign across
-          every channel. No stock imagery: just a real nurse, a considered set, and a creative brief
+          every channel. No stock imagery: just real healthcare workers, a considered set, and a creative brief
           designed to feel human and specific rather than generic "healthcare."
         </p>
         <p>
@@ -136,24 +204,42 @@
       </div>
     </div>
 
-    <!-- 2023 shoot images -->
-    <div class="cs-gallery__grid fade-up">
-      <div class="cs-gallery__item">
-        <img src="../images/category/careers-in-care-photoshoot-01.jpg" alt="Careers in Care photoshoot">
+    <!-- 2023 shoot filmstrip -->
+    <div class="filmstrip-wrapper fade-up">
+      <div class="filmstrip" id="filmstrip">
+        <div class="filmstrip__track">
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-01.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-02.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-03.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-04.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-05.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-06.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-07.jpg" alt="Careers in Care photoshoot">
+          </div>
+          <div class="filmstrip__item">
+            <img src="../images/category/careers-in-care-photoshoot-08.jpg" alt="Careers in Care photoshoot">
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="cs-gallery__grid fade-up">
-      <div class="cs-gallery__item">
-        <img src="../images/category/careers-in-care-photoshoot-02.jpg" alt="Careers in Care photoshoot">
-      </div>
-    </div>
-
-    <div class="cs-gallery__grid cs-gallery__grid--3col fade-up">
-      <div class="cs-gallery__item gallery-placeholder">Social</div>
-      <div class="cs-gallery__item">
-        <img src="../images/category/careers-in-care-display-ads.png" alt="Careers in Care display ads">
-      </div>
-      <div class="cs-gallery__item gallery-placeholder">OOH</div>
+      <button class="filmstrip__arrow filmstrip__arrow--left" id="filmstrip-prev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="13 4 7 10 13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="filmstrip__arrow filmstrip__arrow--right" id="filmstrip-next" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polyline points="7 4 13 10 7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
 
     <!-- 2024 -->
@@ -162,19 +248,22 @@
       <div class="cs-section__content">
         <h3>"Game On" — extending the system with a new concept</h3>
         <p>
-          In 2024, I extended the Careers in Care system with a new "Game On" set design concept and
-          badge identity — evolving the visual language while keeping it rooted in the original system.
-          The 2024 edition also expanded into a full magazine feature in <em>ADA Magazine</em> and
-          lifecycle marketing programs that moved healthcare workers through targeted email-to-apply
-          journeys.
+          In 2024, the Careers in Care system expanded with Game On! — a YouTube video series for Indeed's channel. I designed the logo and title treatment, art directed the set design across three episodes, created artwork for the motion graphics, and designed the YouTube thumbnails. The 2024 campaign also extended into a full-page feature ad in American Dental Association trade magazine and a dedicated landing page on Indeed connecting healthcare workers with tailored job search resources. Watch the Game On playlist →
         </p>
+      </div>
+    </div>
+
+    <div class="cs-gallery__grid cs-gallery__grid--2col fade-up">
+      <div class="cs-gallery__item gallery-placeholder">Social</div>
+      <div class="cs-gallery__item">
+        <img src="../images/category/careers-in-care-display-ads.png" alt="Careers in Care display ads">
       </div>
     </div>
 
     <!-- 2024 Video -->
     <div class="fade-up" style="max-width: var(--max-width); margin: 0 auto var(--space-xl); padding: 0 var(--space-md);">
       <div style="padding:75% 0 0 0; position:relative; border-radius:12px; overflow:hidden;">
-        <iframe src="https://player.vimeo.com/video/1193059648?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Nurse Blake_final_subsbaked"></iframe>
+        <iframe src="https://player.vimeo.com/video/1193059648?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Game On! video series"></iframe>
       </div>
     </div>
 
@@ -182,38 +271,91 @@
       <div class="cs-gallery__item">
         <img src="../images/category/careers-in-care-magazine.png" alt="ADA Magazine feature">
       </div>
-      <div class="cs-gallery__item gallery-placeholder">Lifecycle Email</div>
+      <div class="cs-gallery__item gallery-placeholder">Tailored Landing Page</div>
     </div>
 
-    <!-- Off the Clock -->
+    <!-- Off the Clock — Intro -->
     <div class="cs-section fade-up">
       <p class="cs-section__label">2025 — Off the Clock</p>
       <div class="cs-section__content">
-        <h3>Event branding for healthcare workers — feels like a night out, not a conference</h3>
+        <h3>Event branding for healthcare workers: a night out, not a conference</h3>
         <p>
-          "Off the Clock" is the 2025 Careers in Care event — a brand experience designed for
-          healthcare workers to connect, celebrate, and recharge. I created the full event identity:
-          branded lanyards, step-and-repeat backdrop, tall-format event banners, partnership
-          co-branding, and branded merchandise including water bottles.
-        </p>
-        <p>
-          The Off the Clock identity extended the Careers in Care visual system while carving out
-          its own warm, celebratory personality — distinct from the day-to-day campaign work.
+          "Off the Clock" was the 2025 Careers in Care event — a brand experience for healthcare
+          workers to connect, celebrate, and recharge outside of work. I developed the full event
+          identity from the ground up. What followed was one of the most valuable lessons of
+          the project.
         </p>
       </div>
     </div>
 
-    <!-- Off the Clock images -->
+    <!-- Off the Clock — V1 -->
+    <div class="cs-section fade-up">
+      <p class="cs-section__label">Version 1</p>
+      <div class="cs-section__content">
+        <h3>Initial direction: approved, specced, and already with the vendor</h3>
+        <p>
+          The first identity leaned into a bold, high-contrast, tech-influenced aesthetic — clean
+          geometry, dark palette, confident type. It was approved internally, vendor specs were
+          sent, and production was underway. Then a key stakeholder who hadn't been part of the
+          original review loop saw it and immediately flagged that it read as a tech industry
+          party, not a healthcare event.
+        </p>
+      </div>
+    </div>
+
+    <!-- V1 image -->
     <div class="cs-gallery__grid fade-up">
       <div class="cs-gallery__item">
-        <img src="../images/category/careers-in-care-OTC-original.png" alt="Off the Clock event identity">
+        <img src="../images/category/careers-in-care-OTC-original.png" alt="Off the Clock — Version 1 identity">
       </div>
     </div>
 
-    <div class="cs-gallery__grid cs-gallery__grid--3col fade-up">
-      <div class="cs-gallery__item gallery-placeholder">Step-and-Repeat</div>
-      <div class="cs-gallery__item gallery-placeholder">Event Banners</div>
-      <div class="cs-gallery__item gallery-placeholder">Merchandise</div>
+    <!-- Pivot callout -->
+    <div class="fade-up" style="max-width: var(--max-width); margin: 0 auto var(--space-xl); padding: 0 var(--space-md);">
+      <div class="cs-highlight">
+        <p>This is what design actually looks like: catching something before it ships, taking the feedback seriously, and rebuilding fast. We had a tight window before final print deadlines. We used it.</p>
+      </div>
+    </div>
+
+    <!-- Off the Clock — V2 -->
+    <div class="cs-section fade-up">
+      <p class="cs-section__label">Version 2</p>
+      <div class="cs-section__content">
+        <h3>The rebrand: warm, approachable, unmistakably healthcare</h3>
+        <p>
+          The revised identity shifted toward warmth, approachability, and the human side of
+          care — softer color treatment, more inviting typography, imagery language that felt
+          celebratory rather than corporate-cool. Healthcare workers weren't supposed to feel
+          like they'd walked into a Google event. They were supposed to feel seen.
+        </p>
+        <p>
+          V2 went to production, made it to the event, and landed exactly as intended.
+        </p>
+      </div>
+    </div>
+
+    <!-- V2 design image -->
+    <div class="cs-gallery__grid fade-up">
+      <div class="cs-gallery__item">
+        <img src="../images/category/careers-in-care-OTC-v2.png" alt="Off the Clock — Version 2 identity">
+      </div>
+    </div>
+
+    <!-- Event videos — TODO: replace YOUR_VIMEO_ID_1 and YOUR_VIMEO_ID_2 with real IDs -->
+    <div class="fade-up" style="max-width: var(--max-width); margin: 0 auto var(--space-xl); padding: 0 var(--space-md);">
+      <div style="padding:56.25% 0 0 0; position:relative; border-radius:12px; overflow:hidden; margin-bottom: var(--space-md);">
+        <iframe src="https://player.vimeo.com/video/YOUR_VIMEO_ID_1?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Off the Clock event — Video 1"></iframe>
+      </div>
+      <div style="padding:56.25% 0 0 0; position:relative; border-radius:12px; overflow:hidden;">
+        <iframe src="https://player.vimeo.com/video/YOUR_VIMEO_ID_2?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Off the Clock event — Video 2"></iframe>
+      </div>
+    </div>
+
+    <!-- Event still -->
+    <div class="cs-gallery__grid fade-up">
+      <div class="cs-gallery__item">
+        <img src="../images/category/careers-in-care-OTC-event-still.jpg" alt="Off the Clock event">
+      </div>
     </div>
 
   </div>
@@ -251,5 +393,14 @@
 
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script src="../js/main.js"></script>
+  <script>
+    const filmstrip = document.getElementById('filmstrip');
+    const prevBtn = document.getElementById('filmstrip-prev');
+    const nextBtn = document.getElementById('filmstrip-next');
+    const scrollAmount = 600;
+    nextBtn.addEventListener('click', () => { filmstrip.scrollBy({ left: scrollAmount, behavior: 'smooth' }); });
+    prevBtn.addEventListener('click', () => { filmstrip.scrollBy({ left: -scrollAmount, behavior: 'smooth' }); });
+    filmstrip.addEventListener('scroll', () => { prevBtn.classList.toggle('visible', filmstrip.scrollLeft > 20); });
+  </script>
 </body>
 </html>
