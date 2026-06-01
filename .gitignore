@@ -7,3 +7,6 @@
 # macOS junk
 .DS_Store
 **/.DS_Store
+
+# Private notes
+portfolio-status.md
