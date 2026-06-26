@@ -804,6 +804,33 @@ ul {
   margin-bottom: 0;
 }
 
+/* Credits */
+.cs-credits {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-md);
+  row-gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-credits dt {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding-top: 0.175rem;
+  white-space: nowrap;
+}
+.cs-credits dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
 /* Gallery */
 .cs-gallery {
   padding: var(--space-md) var(--space-md) var(--space-xl);
