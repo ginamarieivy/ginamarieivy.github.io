@@ -134,7 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const _d = 'gmail' + '\x2E' + 'com';
   const _e = _u + '\x40' + _d;
 
-  // Nav "Contact" links + footer anchor hrefs
+  // Nav "Contact" links — open Gmail compose in a new tab
+  document.querySelectorAll('.nav__link--contact').forEach(el => {
+    el.href = 'https://mail.google.com/mail/?view=cm&to=' + _e;
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  // Footer anchor href
   document.querySelectorAll('.js-email-link').forEach(el => {
     el.href = 'mailto:' + _e;
   });
