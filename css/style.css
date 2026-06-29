@@ -284,13 +284,11 @@ ul {
   gap: 0.75rem;
 }
 
-.hero__eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 28px;
-  height: 1.5px;
-  background: var(--amber);
+.hero__eyebrow-shape {
+  height: 20px;
+  width: auto;
   flex-shrink: 0;
+  display: block;
 }
 
 .hero__name {
@@ -1030,6 +1028,9 @@ ul {
   text-transform: uppercase;
   color: var(--amber);
   margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .about-hero__title {
