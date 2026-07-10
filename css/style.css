@@ -1183,6 +1183,10 @@ ul {
     gap: var(--space-sm);
   }
 
+  .cs-section__label {
+    position: static;
+  }
+
   .cs-meta__inner {
     grid-template-columns: repeat(2, 1fr);
   }
